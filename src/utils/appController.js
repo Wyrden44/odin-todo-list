@@ -1,20 +1,23 @@
 import Project from "./project"
 import DOMManager from "./domManager";
 
-class AppController {
+export default class AppController {
     #projects;
     #activeProject;
     #domManager;
 
     constructor() {
+        this.#domManager = new DOMManager();
+
         // default project
         this.#projects = [this.loadDefaultProject()];
-
-        this.#domManager = new DOMManager();
     }
 
     loadDefaultProject() {
-        return new Project();
+        let project = new Project();
+        project.addTodo("Test", "Test", new Date(2008, 2, 2), "medium", false);
+        this.setActiveProject(project);
+        return project
     }
 
     setActiveProject(project) {

@@ -1,6 +1,7 @@
 import Todo from "./todo";
 
 export default class Project {
+    #title;
     #todos;
 
     constructor() {
@@ -17,5 +18,17 @@ export default class Project {
 
     addTodo(title, description, dueDate, priority, completed=false) {
         this.#todos.push(new Todo(title, description, dueDate, priority, completed))
+    }
+
+    get todos() {
+        return this.#todos;
+    }
+
+    get title() {
+        return this.#title;
+    }
+
+    set title(newTitle) {
+        this.#title = newTitle;
     }
 }
