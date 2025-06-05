@@ -18,6 +18,7 @@ body {
     --blue: #3C91E6;
     --black: #141414;
     --rose: #FF928B;
+    --rose-red: #ff5a4f;
     --light-bg: #CFD8D7;
     --blue-light: #3C91E655;
     --black-light: #14141455;
@@ -201,7 +202,7 @@ dialog {
     width: min(30%, 500px);
 }
 
-.dialog-heading {
+.todo-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -210,11 +211,11 @@ dialog {
     margin-bottom: 20px;
 }
 
-.dialog-heading h1 {
+.todo-heading h1 {
     font-size: 1.4rem;
 }
 
-.dialog-heading button {
+.todo-heading button {
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -222,7 +223,7 @@ dialog {
     padding: 0 5px;
 }
 
-.dialog-heading button:hover {
+.todo-heading button:hover {
     cursor: pointer;
     color: var(--blue);
 }
@@ -274,4 +275,62 @@ dialog > button[type="submit"] {
 dialog > button[type="submit"]:hover {
     cursor: pointer;
     border: 1px solid var(--black);
+}
+
+.todo-info-sidebar {
+    flex: 1;
+    max-width: 300px;
+    flex-direction: column;
+    padding: 20px;
+    border-left: 1px solid var(--black-light);
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.todo-info-sidebar .todo-heading {
+    margin: 0;
+    padding: 0;
+}
+
+.todo-info-sidebar .todo-heading h2 {
+    font-size: 1.5rem;
+}
+
+.todo-info-description {
+    margin-bottom: 10px;
+}
+
+.todo-info-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo-info-actions {
+    border-top: 1px solid var(--black-light);
+    padding-top: 30px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo-info-actions button {
+    padding: 8px 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--blue);
+}
+
+.todo-info-actions button:last-child {
+    background-color: #dddddd55;
 }
