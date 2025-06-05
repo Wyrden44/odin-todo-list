@@ -7,7 +7,7 @@ export default class AppController {
     #domManager;
 
     constructor() {
-        this.#domManager = new DOMManager();
+        this.#domManager = new DOMManager(this);
 
         // default project
         this.#projects = [this.loadDefaultProject()];

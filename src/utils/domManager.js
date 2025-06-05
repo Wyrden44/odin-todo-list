@@ -1,3 +1,4 @@
+import { parseISO } from "date-fns";
 import TodoRenderer from "./todoRenderer";
 
 export default class DOMManager {
@@ -5,13 +6,14 @@ export default class DOMManager {
     #projectContainer;
     #todoContainer;
 
-    #addButton;
     #addDialog;
 
     constructor(appController) {
         this.#appController = appController;
         this.#projectContainer = document.querySelector("#project-container");
-        this.#addDialog = document.querySelector("#add-todo-dialog")
+        this.#addDialog = document.querySelector("#add-todo-dialog");
+
+        this.setUpDialogListeners();
     }
 
     renderProject(project) {
@@ -22,12 +24,12 @@ export default class DOMManager {
         titleElement.classList.add("project-title");
         titleElement.textContent = project.title;
 
-        this.#addButton = document.createElement("button");
-        this.#addButton.classList.add("add-todo");
-        this.#addButton.textContent = "+ New";
+        let addButton = document.createElement("button");
+        addButton.classList.add("add-todo");
+        addButton.textContent = "+ New";
 
         projectHeading.appendChild(titleElement);
-        projectHeading.appendChild(this.#addButton);
+        projectHeading.appendChild(addButton);
         this.#projectContainer.appendChild(projectHeading);
 
         this.#todoContainer = document.createElement("div");
@@ -39,7 +41,7 @@ export default class DOMManager {
 
         this.#projectContainer.appendChild(this.#todoContainer);
 
-        this.addTodoLogic();
+        this.setUpAddButtonListener(addButton);
     }
 
     addTodo(todo) {
@@ -47,10 +49,42 @@ export default class DOMManager {
         this.#todoContainer.appendChild(todoElement);
     }
 
-    addTodoLogic() {
-        this.#addButton.addEventListener("click", e => {
+    setUpAddButtonListener(addButton) {
+        addButton.addEventListener("click", e => {
             // show dialog
             this.#addDialog.showModal();
+        });
+    }
+
+    setUpDialogListeners() {
+        const submitDialog = document.querySelector("#add-dialog-submit");
+        const cancelDialog = document.querySelector("#cancel-dialog");
+        const addDialogForm = document.querySelector("#add-dialog-form");
+
+        submitDialog.addEventListener("click", e => {
+            e.preventDefault();
+
+            if (!addDialogForm.checkValidity()) {
+                addDialogForm.reportValidity();
+                return;
+            }
+
+            // extract form data and add todo
+            const formData = new FormData(addDialogForm);
+            const title = formData.get("title");
+            const description = formData.get("description");
+            const dueDate = parseISO(formData.get("date"));
+            const priority = formData.get("priority");
+
+            console.log("Adding todo:", title, description, dueDate, priority);
+
+            this.#appController.addTodo(title, description, dueDate, priority, false);
+
+            this.#addDialog.close(); // close dialog
+        });
+
+        cancelDialog.addEventListener("click", e => {
+            this.#addDialog.close();
         });
     }
 }
