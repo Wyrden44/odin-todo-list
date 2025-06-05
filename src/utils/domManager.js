@@ -46,7 +46,14 @@ export default class DOMManager {
 
     addTodo(todo) {
         let todoElement = TodoRenderer.getRenderedTodo(todo);
+        this.setUpTodoListener(todoElement, todo);
         this.#todoContainer.appendChild(todoElement);
+    }
+
+    setUpTodoListener(todoElement, todo) {
+        todoElement.addEventListener("click", e => {
+            TodoRenderer.toggleTodoInfo(todo);
+        });
     }
 
     setUpAddButtonListener(addButton) {

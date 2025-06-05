@@ -55,4 +55,78 @@ export default class TodoRenderer {
             todoElement.classList.add("complete");
         }
     }
+
+    static toggleTodoInfo(todo) {
+        const infoSidebar = document.querySelector(".todo-info-sidebar");
+
+        if (infoSidebar.style.display !== "none") {
+            this.hideTodoInfo(infoSidebar);
+        }
+        else {
+            this.showTodoInfo(todo, infoSidebar);
+        }
+    }
+
+    static showTodoInfo(todo, infoSidebar) {
+        infoSidebar.textContent = "";
+
+        let heading = document.createElement("div");
+        heading.classList.add("todo-info-heading");
+
+        let title = document.createElement("h2");
+        title.classList.add("todo-info-title");
+        title.textContent = todo.title;
+
+        let closeBtn = document.createElement("button");
+        closeBtn.classList.add("todo-info-close");
+        closeBtn.textContent = "×";
+
+        heading.appendChild(title);
+        heading.appendChild(closeBtn);
+        
+        let description = document.createElement("p");
+        description.classList.add("todo-info-description");
+        description.textContent = todo.description;
+
+        let info = document.createElement("div");
+
+        let priority = document.createElement("p");
+        priority.classList.add("todo-priority");
+        priority.textContent = todo.priority;
+
+        let dueDate = document.createElement("p");
+        dueDate.classList.add("todo-due-date");
+        dueDate.textContent = format(todo.dueDate, "dd.MM.yyyy");
+
+        info.appendChild(priority);
+        info.appendChild(dueDate);
+
+        let complete = document.createElement("p");
+        complete.classList.add("todo-priority");
+        complete.textContent = todo.complete ? "complete" : "pending";
+
+        let actions = document.createElement("div");
+        
+        let editButton = document.createElement("button");
+        editButton.classList.add("todo-edit");
+        editButton.textContent = "Edit";
+
+        let deleteButton = document.createElement("button");
+        deleteButton.classList.add("todo-delete");
+        deleteButton.textContent = "Delete";
+
+        actions.appendChild(editButton);
+        actions.appendChild(deleteButton);
+
+        infoSidebar.appendChild(heading);
+        infoSidebar.appendChild(description);
+        infoSidebar.appendChild(info);
+        infoSidebar.appendChild(actions);
+
+        infoSidebar.style.display = "block";
+    }
+
+    static hideTodoInfo(infoSidebar) {
+        infoSidebar.style.display = "none";
+    }
 }
