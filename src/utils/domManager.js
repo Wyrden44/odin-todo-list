@@ -26,7 +26,7 @@ export default class DOMManager {
 
         let addButton = document.createElement("button");
         addButton.classList.add("add-todo");
-        addButton.textContent = "+ New";
+        addButton.textContent = "+";
 
         projectHeading.appendChild(titleElement);
         projectHeading.appendChild(addButton);
@@ -61,7 +61,7 @@ export default class DOMManager {
         const cancelDialog = document.querySelector("#cancel-dialog");
         const addDialogForm = document.querySelector("#add-dialog-form");
 
-        submitDialog.addEventListener("click", e => {
+        addDialogForm.addEventListener("submit", e => {
             e.preventDefault();
 
             if (!addDialogForm.checkValidity()) {

@@ -96,7 +96,6 @@ body {
 }
 
 .project-title {
-    margin-top: 20px;
     font-size: 1.5rem;
 }
 
@@ -171,12 +170,108 @@ body {
 
 }
 
+.project-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 20px;
+}
+
+.add-todo {
+    padding: 5px 30px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--blue);
+    box-shadow: var(--black-light) 5px 5px 5px -3px;
+}
+
 dialog {
     align-self: center;
     justify-self: center;
+
+    border: none;
+    border-radius: 10px;
+    padding: 30px;
+
+    min-width: max-content;
+    width: min(30%, 500px);
+}
+
+.dialog-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--black-light);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.dialog-heading h1 {
+    font-size: 1.4rem;
+}
+
+.dialog-heading button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    padding: 0 5px;
+}
+
+.dialog-heading button:hover {
+    cursor: pointer;
+    color: var(--blue);
 }
 
 form {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+
+    border-bottom: 1px solid var(--black-light);
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+}
+
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-section label {
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.form-section input, .form-section select,  .form-section textarea {
+    padding: 10px;
+    margin-top: 2px;
+    border: none;
+    background-color: rgba(180, 180, 180, 0.1);
+    border-radius: 5px;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+dialog > button[type="submit"] {
+    float: right;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--blue);
+    border: 1px solid transparent;
+}
+
+dialog > button[type="submit"]:hover {
+    cursor: pointer;
+    border: 1px solid var(--black);
 }

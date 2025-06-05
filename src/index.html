@@ -22,6 +22,10 @@
     </div>
     
     <dialog closedby="any" id="add-todo-dialog">
+        <div class="dialog-heading">
+            <h1>Add Todo</h1>
+            <button id="cancel-dialog">×</button>
+        </div>
         <form id="add-dialog-form" method="dialog">
             <div class="form-section">
                 <label for="title">Title</label>
@@ -43,9 +47,8 @@
                 <label for="date">Due Date</label>
                 <input type="date" name="date" id="dialog-todo-date" required>
             </div>
-            <button type="submit" id="add-dialog-submit">Add Todo</button>
-            <button id="cancel-dialog">Cancel</button>
         </form>
+        <button type="submit" form="add-dialog-form" id="add-dialog-submit">Add Todo</button>
     </dialog>
 </body>
 </html>
