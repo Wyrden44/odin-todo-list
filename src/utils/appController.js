@@ -22,7 +22,11 @@ export default class AppController {
 
     setActiveProject(project) {
         this.#activeProject = project;
-        
         this.#domManager.renderProject(project);
+    }
+
+    addTodo(title, description, dueDate, priority, completed) {
+        this.#activeProject.addTodo(title, description, dueDate, priority, completed);
+        this.#domManager.addTodo(this.#activeProject.getLastTodo());
     }
 }

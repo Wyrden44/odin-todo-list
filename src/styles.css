@@ -84,6 +84,7 @@ body {
 .projects-nav-display p:hover {
     background-color: var(--blue-light);
     cursor: pointer;
+    
 }
 
 #project-container {

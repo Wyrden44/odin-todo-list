@@ -21,6 +21,10 @@ export default class Project {
         this.#todos.push(new Todo(title, description, dueDate, priority, completed))
     }
 
+    getLastTodo() {
+        return this.#todos[this.#todos.length-1];
+    }
+
     get todos() {
         return this.#todos;
     }
