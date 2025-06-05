@@ -21,16 +21,29 @@
         
     </div>
     
-    <dialog id="add-todo-dialog">
+    <dialog closedby="any" id="add-todo-dialog">
         <form method="dialog">
-            <input type="text" name="title" id="dialog-todo-title">
-            <input type="text" name="description" id="dialog-todo-description">
-            <select name="priority" id="dialog-todo-priority">^
-                <option value="low">low</option>
-                <option value="medium">medium</option>
-                <option value="high">high</option>
-            </select>
-            <input type="date" name="date" id="dialog-todo-date">
+            <div class="form-section">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="dialog-todo-title">
+            </div>
+            <div class="form-section">
+                <label for="description">Description</label>
+                <input type="text" name="description" id="dialog-todo-description">
+            </div>
+            <div class="form-section">
+                <label for="priority">Priority</label>
+                <select name="priority" id="dialog-todo-priority">^
+                    <option value="low">low</option>
+                    <option value="medium">medium</option>
+                    <option value="high">high</option>
+                </select>
+            </div>
+            <div class="form-section">
+                <label for="date">Due Date</label>
+                <input type="date" name="date" id="dialog-todo-date">
+            </div>
+            <button type="submit">Add Todo</button>
         </form>
     </dialog>
 </body>

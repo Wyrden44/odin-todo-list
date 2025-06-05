@@ -170,3 +170,13 @@ body {
     cursor: pointer;
 
 }
+
+dialog {
+    align-self: center;
+    justify-self: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
