@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    font-size: 1rem;
+}
+
 @font-face {
   font-family: 'Roboto';
   src: url('./assets/Roboto-VariableFont_wdth\,wght.ttf') format("truetype-variations");
@@ -16,6 +20,7 @@ body {
     --rose: #FF928B;
     --light-bg: #F9FBF2;
     --blue-light: #3C91E655;
+    --black-light: #14141455;
 
     font-family: "Roboto";
     line-height: 1.5;
@@ -40,6 +45,10 @@ body {
 .sidebar .heading {
     margin-bottom: 30px;
     padding-left: var(--sidebar-element-padding);
+}
+
+.heading h1 {
+    font-size: 2rem;
 }
 
 .project-nav h2 {
@@ -80,3 +89,82 @@ body {
     flex: 3 0 auto;
 }
 
+#project-container {
+    padding: 10px 20px;
+}
+
+.project-title {
+    margin-top: 20px;
+    font-size: 1.5rem;
+}
+
+.todos {
+    display: grid;
+    grid-auto-rows: 1fr;
+}
+
+.todo-container {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px 15px 10px 10px;
+    margin-top: 15px;
+    border-top: 1px solid var(--black-light);
+    /* box-shadow: #14141422 10px 10px 5px -5px; */
+}
+
+.todo-container .left {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.todo-container .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.todo-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.todo-description {
+    display: none;
+}
+
+.todo-priority {
+    justify-self: end;
+
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    padding: 3px 7px;
+    border-radius: 10px;
+    background-color: var(--rose);
+}
+
+.todo-due-date {
+    font-size: 0.9rem;
+
+    border-left: 1px solid var(--black);
+    padding-left: 10px;
+}
+
+/* style checkmark */
+.checkbox {
+    width: 15px;
+    height: 15px;
+    border: 1px solid var(--black-light);
+    border-radius: 50%;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+
+}

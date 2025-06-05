@@ -4,7 +4,8 @@ export default class Project {
     #title;
     #todos;
 
-    constructor() {
+    constructor(title) {
+        this.#title = title;
         this.#todos = [];
     }
 

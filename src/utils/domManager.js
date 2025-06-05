@@ -11,6 +11,7 @@ export default class DOMManager {
     renderProject(project) {
         let titleElement = document.createElement("h1");
         titleElement.classList.add("project-title");
+        titleElement.textContent = project.title;
         this.projectContainer.appendChild(titleElement);
 
         this.todoContainer = document.createElement("div");
