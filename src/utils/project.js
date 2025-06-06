@@ -21,6 +21,17 @@ export default class Project {
         this.#todos.push(new Todo(title, description, dueDate, priority, completed))
     }
 
+    editTodo(todoId, title, description, dueDate, priority) {
+        for (let todo of this.#todos) {
+            if (todo.id === todoId) {
+                todo.title = title;
+                todo.description = description;
+                todo.dueDate = dueDate;
+                todo.priority = priority;
+            } 
+        }
+    }
+
     getLastTodo() {
         return this.#todos[this.#todos.length-1];
     }

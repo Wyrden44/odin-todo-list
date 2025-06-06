@@ -56,22 +56,7 @@ export default class TodoRenderer {
         }
     }
 
-    static toggleTodoInfo(todo) {
-        const infoSidebar = document.querySelector(".todo-info-sidebar");
-
-        if (infoSidebar.classList.contains("show")) {
-            this.hideTodoInfo(infoSidebar);
-        }
-        else {
-            this.showTodoInfo(todo, infoSidebar);
-        }
-    }
-
-    static showTodoInfo(todo, infoSidebar) {
-        infoSidebar.classList.remove("hide");
-        infoSidebar.classList.add("show");
-        infoSidebar.textContent = "";
-
+    static buildTodoInfo(todo, infoSidebar) {
         let heading = document.createElement("div");
         heading.classList.add("todo-heading");
 
@@ -79,12 +64,12 @@ export default class TodoRenderer {
         title.classList.add("todo-info-title");
         title.textContent = todo.title;
 
-        let closeBtn = document.createElement("button");
-        closeBtn.classList.add("todo-info-close");
-        closeBtn.textContent = "×";
+        let closeButton = document.createElement("button");
+        closeButton.classList.add("todo-info-close");
+        closeButton.textContent = "×";
 
         heading.appendChild(title);
-        heading.appendChild(closeBtn);
+        heading.appendChild(closeButton);
         
         let description = document.createElement("p");
         description.classList.add("todo-info-description");
@@ -126,6 +111,8 @@ export default class TodoRenderer {
         infoSidebar.appendChild(description);
         infoSidebar.appendChild(info);
         infoSidebar.appendChild(actions);
+
+        return { editButton, deleteButton, closeButton };
     }
 
     static hideTodoInfo(infoSidebar) {

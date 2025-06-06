@@ -6,6 +6,9 @@ export default class AppController {
     #activeProject;
     #domManager;
 
+    #activeTodo;
+    #activeTodoElement;
+
     constructor() {
         this.#domManager = new DOMManager(this);
 
@@ -25,8 +28,23 @@ export default class AppController {
         this.#domManager.renderProject(project);
     }
 
+    setActiveTodo(todo, todoElement) {
+        this.#activeTodo = todo;
+        this.#activeTodoElement = todoElement;
+    }
+    
+    resetActiveTodo() {
+        this.#activeTodo = null;
+        this.#activeTodoElement = null;
+    }
+
     addTodo(title, description, dueDate, priority, completed) {
         this.#activeProject.addTodo(title, description, dueDate, priority, completed);
         this.#domManager.addTodo(this.#activeProject.getLastTodo());
+    }
+
+    editTodo(title, description, dueDate, priority) {
+        this.#activeProject.editTodo(this.#activeTodo.id, title, description, dueDate, priority);
+        this.#domManager.editTodo(this.#activeTodoElement, title, description, dueDate, priority);
     }
 }
