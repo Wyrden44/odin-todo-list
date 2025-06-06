@@ -17,8 +17,8 @@ export default class AppController {
     }
 
     loadDefaultProject() {
-        let project = new Project("Test Project");
-        project.addTodo("Test", "Test", new Date(2008, 2, 2), "medium", false);
+        let project = new Project("Default");
+        project.addTodo("Default Todo", "This is the default to do for you to interact with", new Date(2025, 6, 6), "low", false);
         this.#domManager.addProject(project);
         this.setActiveProject(project);
         return project
@@ -27,6 +27,7 @@ export default class AppController {
     setActiveProject(project) {
         this.#activeProject = project;
         this.#domManager.renderProject(project);
+        this.#domManager.setActiveProject(project);
     }
 
     addProject(title) {

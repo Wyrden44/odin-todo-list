@@ -24,7 +24,7 @@ export default class DOMManager {
 
     renderProject(project) {
         this.#projectContainer.textContent = "";
-        
+
         let projectHeading = document.createElement("div");
         projectHeading.classList.add("project-heading");
 
@@ -50,6 +50,17 @@ export default class DOMManager {
         this.#projectContainer.appendChild(this.#todoContainer);
 
         this.setUpAddButtonListener(addButton);
+    }
+
+    setActiveProject(project) {
+        let projects = this.#projectNav.querySelectorAll("p");
+        projects.forEach(projectElement => {
+            if (projectElement.textContent === project.title) {
+                projectElement.classList.add("active");
+                return;
+            }
+            projectElement.classList.remove("active");
+        });
     }
 
     addProject(project) {
