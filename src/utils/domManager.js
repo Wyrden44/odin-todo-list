@@ -53,7 +53,7 @@ export default class DOMManager {
         this.#todoContainer.appendChild(todoElement);
     }
 
-    editTodo(todoElement, title, description, dueDate, priority) {
+    editTodo(todoElement, todo, title, description, dueDate, priority) {
         const todoTitle = todoElement.querySelector(".todo-title");
         const todoPriority = todoElement.querySelector(".todo-priority");
         const todoDueDate = todoElement.querySelector(".todo-due-date");
@@ -61,6 +61,9 @@ export default class DOMManager {
         todoTitle.textContent = title;
         todoPriority.textContent = priority;
         todoDueDate.textContent = format(dueDate, "dd.MM.yyyy");
+
+        this.closeTodoInfo();
+        this.showTodoInfo(todo);
     }
 
     removeTodo(id) {
