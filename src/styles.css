@@ -22,6 +22,8 @@ body {
     --light-bg: #e6f1f1;
     --blue-light: #3C91E655;
     --black-light: #14141455;
+    --yellow: #FFD25A;
+    --green: #99D19C;
 
     font-family: "Roboto";
     line-height: 1.5;
@@ -39,23 +41,34 @@ body {
     max-width: 300px;
     height: 100%;
 
-    padding: 10px;
+    padding: 30px 20px 10px 30px;
 }
 
 .sidebar .heading {
-    margin-bottom: 30px;
-    padding-left: var(--sidebar-element-padding);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--black-light);
 }
 
 .heading h1 {
-    font-size: 2rem;
+    color: transparent;
+    background: linear-gradient(-30deg, var(--rose) 60%, var(--blue));
+    background-clip: text;
+    font-size: 1.8rem;
+}
+
+.sidebar .heading p {
+    color: transparent;
+    background: linear-gradient(-30deg, var(--rose) 50%, var(--blue));
+    background-clip: text;
+    font-size: 0.95rem;
 }
 
 .project-nav-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .project-nav-heading button {
@@ -79,14 +92,12 @@ body {
 .project-nav h2 {
     font-weight: 500;
     font-size: 1.3rem;
-
-    padding-left: var(--sidebar-element-padding);
 }
 
 .projects-nav-display p{
     font-weight: 425;
 
-    margin-bottom: 0.25rem;
+    margin-top: 1.5rem;
 
     border-radius: 10px;
     padding: 0.1rem var(--sidebar-element-padding);
@@ -180,7 +191,7 @@ body {
 }
 
 .todo-container.complete .checkbox {
-    background-color: var(--black-light);
+    background-color: var(--blackx-light);
 }
 
 .todo-container .left {
@@ -214,6 +225,17 @@ body {
 
     padding: 3px 7px;
     border-radius: 10px;
+}
+
+.todo-priority.low {
+    background-color: var(--green);
+}
+
+.todo-priority.medium {
+    background-color: var(--yellow);
+}
+
+.todo-priority.high {
     background-color: var(--rose);
 }
 
