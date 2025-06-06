@@ -191,7 +191,7 @@ body {
 }
 
 .todo-container.complete .checkbox {
-    background-color: var(--blackx-light);
+    background-color: var(--black-light);
 }
 
 .todo-container .left {

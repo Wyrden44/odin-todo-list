@@ -5,6 +5,10 @@ export default class TodoRenderer {
         let todoContainer = document.createElement("div");
         todoContainer.classList.add("todo-container");
         todoContainer.id = `todo-id-${todo.id}`;
+        // complete
+        if (todo.completed) {
+            todoContainer.classList.add("complete");
+        }
 
         let left = document.createElement("div");
         left.classList.add("left");
@@ -36,6 +40,7 @@ export default class TodoRenderer {
         completed.addEventListener("click", e => {
             e.stopPropagation();
             this.toggleComplete(todoContainer);
+            todo.toggleComplete();
         });
 
         left.appendChild(completed);
