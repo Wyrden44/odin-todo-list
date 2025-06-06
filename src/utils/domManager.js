@@ -93,6 +93,10 @@ export default class DOMManager {
         deleteButton.addEventListener("click", e => {
             this.#appController.removeTodo(todo.id);            
         });
+
+        closeButton.addEventListener("click", e => {
+            this.closeTodoInfo();
+        });
     }
 
     closeTodoInfo() {
