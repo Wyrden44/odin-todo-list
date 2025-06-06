@@ -52,11 +52,31 @@ body {
     font-size: 2rem;
 }
 
+.project-nav-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.project-nav-heading button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--blue);
+}
+
+.project-nav-heading button:hover {
+    cursor: pointer;
+    box-shadow: var(--black-light) 3px 3px 5px -1px;
+}
+
 .project-nav h2 {
     font-weight: 500;
     font-size: 1.3rem;
-
-    margin-bottom: 1rem;
 
     padding-left: var(--sidebar-element-padding);
 }
@@ -179,7 +199,7 @@ body {
     margin-top: 20px;
 }
 
-.add-todo {
+.add-todo{
     padding: 5px 30px;
     font-size: 1.25rem;
     font-weight: 600;
@@ -202,7 +222,7 @@ dialog {
     width: min(30%, 500px);
 }
 
-.todo-heading {
+.dialog-heading {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -211,11 +231,11 @@ dialog {
     margin-bottom: 20px;
 }
 
-.todo-heading h1 {
+.dialog-heading h1 {
     font-size: 1.4rem;
 }
 
-.todo-heading button {
+.dialog-heading button {
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -223,7 +243,7 @@ dialog {
     padding: 0 5px;
 }
 
-.todo-heading button:hover {
+.dialog-heading button:hover {
     cursor: pointer;
     color: var(--blue);
 }
@@ -295,12 +315,12 @@ dialog > button[type="submit"]:hover {
     gap: 20px;
 }
 
-.todo-info-sidebar .todo-heading {
+.todo-info-sidebar .dialog-heading {
     margin: 0;
     padding: 0;
 }
 
-.todo-info-sidebar .todo-heading h2 {
+.todo-info-sidebar .dialog-heading h2 {
     font-size: 1.5rem;
 }
 

@@ -59,7 +59,7 @@ export default class TodoRenderer {
 
     static buildTodoInfo(todo, infoSidebar) {
         let heading = document.createElement("div");
-        heading.classList.add("todo-heading");
+        heading.classList.add("dialog-heading");
 
         let title = document.createElement("h2");
         title.classList.add("todo-info-title");
