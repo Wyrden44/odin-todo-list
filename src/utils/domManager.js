@@ -139,6 +139,7 @@ export default class DOMManager {
             console.log("Adding todo:", title, description, dueDate, priority);
             this.#appController.addTodo(title, description, dueDate, priority, false);
 
+            addDialogForm.reset();
             this.#addDialog.close();
         });
 
@@ -170,6 +171,7 @@ export default class DOMManager {
             console.log("Editing todo:", title, description, dueDate, priority);
             this.#appController.editTodo(title, description, dueDate, priority);
 
+            addDialogForm.reset();
             this.#editDialog.close();
         });
 
@@ -179,9 +181,10 @@ export default class DOMManager {
     }
 
     setUpEditDialog(todo) {
+        console.log(todo.description);
         // title input
         document.getElementById("edit-dialog-todo-title").value = todo.title;
-        document.getElementById("edit-dialog-todo-description").textContent = todo.title;
+        document.getElementById("edit-dialog-todo-description").textContent = todo.description;
         
         document.getElementById("edit-dialog-todo-priority").querySelectorAll("option").forEach(element => {
             if (element.textContent === todo.priority) {
