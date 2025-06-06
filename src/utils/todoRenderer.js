@@ -33,6 +33,7 @@ export default class TodoRenderer {
 
         // event listener for completion
         completed.addEventListener("click", e => {
+            e.stopPropagation();
             this.toggleComplete(todoContainer);
         });
 
