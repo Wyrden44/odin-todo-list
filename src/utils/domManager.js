@@ -187,6 +187,6 @@ export default class DOMManager {
             }
             element.selected = "";
         });
-        document.getElementById("edit-dialog-todo-date").textContent = format(todo.dueDate, "yyyy-MM-dd");
+        document.getElementById("edit-dialog-todo-date").value = format(todo.dueDate, "yyyy-MM-dd");
     }
 }
