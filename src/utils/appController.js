@@ -47,4 +47,9 @@ export default class AppController {
         this.#activeProject.editTodo(this.#activeTodo.id, title, description, dueDate, priority);
         this.#domManager.editTodo(this.#activeTodoElement, title, description, dueDate, priority);
     }
+
+    removeTodo(id) {
+        this.#activeProject.removeTodo(id);
+        this.#domManager.removeTodo(id);
+    }
 }

@@ -4,6 +4,7 @@ export default class TodoRenderer {
     static getRenderedTodo(todo) {
         let todoContainer = document.createElement("div");
         todoContainer.classList.add("todo-container");
+        todoContainer.id = `todo-id-${todo.id}`;
 
         let left = document.createElement("div");
         left.classList.add("left");

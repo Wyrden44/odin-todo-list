@@ -63,6 +63,12 @@ export default class DOMManager {
         todoDueDate.textContent = format(dueDate, "dd.MM.yyyy");
     }
 
+    removeTodo(id) {
+        let todoElement = this.#todoContainer.querySelector(`#todo-id-${id}`);
+        todoElement.remove();
+        this.closeTodoInfo();
+    }
+
     showTodoInfo(todo) {
         // element to render on
         const infoSidebar = document.querySelector(".todo-info-sidebar");
@@ -80,6 +86,17 @@ export default class DOMManager {
             this.#editDialog.showModal();
             this.setUpEditDialog(todo);
         });
+
+        deleteButton.addEventListener("click", e => {
+            this.#appController.removeTodo(todo.id);            
+        });
+    }
+
+    closeTodoInfo() {
+        const infoSidebar = document.querySelector(".todo-info-sidebar");
+        infoSidebar.textContent = "";
+        infoSidebar.classList.remove("show");
+        infoSidebar.classList.add("hide");
     }
 
     setUpTodoListener(todoElement, todo) {
