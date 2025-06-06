@@ -5,6 +5,7 @@ export default class DOMManager {
     #appController;
     #projectContainer;
     #todoContainer;
+    #projectNav;
 
     #addDialog;
     #editDialog;
@@ -14,9 +15,11 @@ export default class DOMManager {
         this.#projectContainer = document.querySelector("#project-container");
         this.#addDialog = document.querySelector("#add-todo-dialog");
         this.#editDialog = document.querySelector("#edit-todo-dialog");
+        this.#projectNav = document.querySelector(".projects-nav-display")
 
         this.setUpDialogListeners();
         this.setUpEditDialogListeners();
+        this.setUpProjectDialogListeners();
     }
 
     renderProject(project) {
@@ -45,6 +48,12 @@ export default class DOMManager {
         this.#projectContainer.appendChild(this.#todoContainer);
 
         this.setUpAddButtonListener(addButton);
+    }
+
+    addProject(project) {
+        let projectHeading = document.createElement("p");
+        projectHeading.textContent = project.title;
+        this.#projectNav.appendChild(projectHeading);
     }
 
     addTodo(todo) {
@@ -198,5 +207,40 @@ export default class DOMManager {
             element.selected = "";
         });
         document.getElementById("edit-dialog-todo-date").value = format(todo.dueDate, "yyyy-MM-dd");
+    }
+
+    setUpProjectDialogListeners() {
+        const projectDialog = document.querySelector("#project-dialog");
+        const cancelDialog = document.querySelector("#cancel-project-dialog");
+        const projectDialogForm = document.querySelector("#project-dialog-form");
+        const openDialog = document.querySelector("#add-project");
+
+        openDialog.addEventListener("click", e => {
+            projectDialog.showModal();
+        });
+
+        projectDialogForm.addEventListener("submit", e => {
+            e.preventDefault();
+
+            if (!projectDialogForm.checkValidity()) {
+                projectDialogForm.reportValidity();
+                return;
+            }
+
+            // extract form data
+            const formData = new FormData(projectDialogForm);
+            const title = formData.get("title");
+
+
+            console.log("Adding project:", title);
+            this.#appController.addProject(title);
+
+            projectDialogForm.reset();
+            projectDialog.close();
+        });
+
+        cancelDialog.addEventListener("click", e => {
+            projectDialog.close();
+        });
     }
 }

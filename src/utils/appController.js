@@ -28,6 +28,12 @@ export default class AppController {
         this.#domManager.renderProject(project);
     }
 
+    addProject(title) {
+        let project = new Project(title);
+        this.#projects.push(project);
+        this.#domManager.addProject(project);
+    }
+
     setActiveTodo(todo, todoElement) {
         this.#activeTodo = todo;
         this.#activeTodoElement = todoElement;
