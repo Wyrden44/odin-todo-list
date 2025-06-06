@@ -101,11 +101,20 @@ export default class DOMManager {
     showTodoInfo(todo) {
         // element to render on
         const infoSidebar = document.querySelector(".todo-info-sidebar");
+
+        if (infoSidebar.classList.contains(`todo-id-${todo.id}`)) {
+            infoSidebar.classList.remove(`todo-id-${todo.id}`);
+            infoSidebar.classList.remove("show");
+            infoSidebar.classList.add("hide");
+            return;
+        }
+
         // reset
         infoSidebar.textContent = "";
         if (infoSidebar.classList.contains("hide")) {
             infoSidebar.classList.remove("hide");
             infoSidebar.classList.add("show");
+            infoSidebar.classList.add(`todo-id-${todo.id}`)
         }
 
         // get interactive elements and add all children
