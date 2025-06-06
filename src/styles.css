@@ -19,7 +19,7 @@ body {
     --black: #141414;
     --rose: #FF928B;
     --rose-red: #ff5a4f;
-    --light-bg: #CFD8D7;
+    --light-bg: #e6f1f1;
     --blue-light: #3C91E655;
     --black-light: #14141455;
 
@@ -40,7 +40,6 @@ body {
     height: 100%;
 
     padding: 10px;
-    background-color: var(--light-bg);
 }
 
 .sidebar .heading {
@@ -67,11 +66,14 @@ body {
     border: none;
     border-radius: 10px;
     background-color: var(--blue);
+    margin-right: 10px;
+    border: 1px solid transparent;
 }
 
 .project-nav-heading button:hover {
     cursor: pointer;
-    box-shadow: var(--black-light) 3px 3px 5px -1px;
+    box-shadow: var(--black-light) 3px 3px 3px -2px;
+    border-color: var(--black);
 }
 
 .project-nav h2 {
@@ -110,10 +112,16 @@ body {
 
 #project-container {
     flex: 3 0 auto;
+    background-color: var(--light-bg);
 }
 
 #project-container {
-    padding: 10px 20px;
+    padding: 10px 35px;
+}
+
+.project-heading {
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--black-light);
 }
 
 .project-title {
@@ -131,11 +139,29 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    padding: 10px 15px 10px 10px;
-    margin-top: 15px;
-    border-top: 1px solid var(--black-light);
+    padding: 15px 15px 15px 10px;
+    margin-top: 20px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid var(--black-light);
+    position: relative;
     /* box-shadow: #14141422 10px 10px 5px -5px; */
 }
+
+.todo-container:hover {
+    cursor: pointer;
+    border-color: var(--blue);
+    box-shadow: var(--black-light) 10px 10px 20px -17px;
+}
+
+.todo-container.complete {
+    opacity: 0.5;
+}
+
+.todo-container.complete .todo-title {
+    text-decoration: line-through;
+}
+
 
 .todo-container .left {
     flex: 1;
@@ -188,7 +214,7 @@ body {
 
 .checkbox:hover {
     cursor: pointer;
-
+    border-color: var(--black);
 }
 
 .project-heading {
@@ -207,7 +233,13 @@ body {
     border: none;
     border-radius: 10px;
     background-color: var(--blue);
-    box-shadow: var(--black-light) 5px 5px 5px -3px;
+    border: 1px solid transparent;
+}
+
+.add-todo:hover {
+    cursor: pointer;
+    box-shadow: var(--black-light) 5px 5px 10px -5px;
+    border-color: var(--black);
 }
 
 dialog {
@@ -302,7 +334,6 @@ dialog > button[type="submit"]:hover {
     max-width: 300px;
     flex-direction: column;
     padding: 20px;
-    border-left: 1px solid var(--black-light);
 }
 
 .hide {
@@ -349,8 +380,17 @@ dialog > button[type="submit"]:hover {
     border: none;
     border-radius: 5px;
     background-color: var(--blue);
+    --border-hover-color: var(--black);
+    border: 1px solid transparent;
 }
 
 .todo-info-actions button:last-child {
     background-color: #dddddd55;
+    --border-hover-color: var(--blue);
+}
+
+.todo-info-actions button:hover {
+    cursor: pointer;
+    box-shadow: var(--black-light) 8px 8px 10px -8px;
+    border: 1px solid var(--border-hover-color);
 }
