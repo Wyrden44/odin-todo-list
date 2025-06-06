@@ -88,6 +88,7 @@ export default class TodoRenderer {
 
         let priority = document.createElement("p");
         priority.classList.add("todo-priority");
+        priority.classList.add(todo.priority);
         priority.textContent = todo.priority;
 
         let dueDate = document.createElement("p");

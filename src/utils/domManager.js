@@ -86,6 +86,13 @@ export default class DOMManager {
 
         todoTitle.textContent = title;
         todoPriority.textContent = priority;
+        if (!todoPriority.classList.contains(todo.priority)) {
+            // reset priorities
+            todoPriority.classList.remove("low");
+            todoPriority.classList.remove("medium");
+            todoPriority.classList.remove("high");
+            todoPriority.classList.add(todo.priority);
+        }
         todoDueDate.textContent = format(dueDate, "dd.MM.yyyy");
 
         this.closeTodoInfo();
