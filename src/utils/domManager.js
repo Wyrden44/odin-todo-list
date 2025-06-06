@@ -23,6 +23,8 @@ export default class DOMManager {
     }
 
     renderProject(project) {
+        this.#projectContainer.textContent = "";
+        
         let projectHeading = document.createElement("div");
         projectHeading.classList.add("project-heading");
 
@@ -54,6 +56,10 @@ export default class DOMManager {
         let projectHeading = document.createElement("p");
         projectHeading.textContent = project.title;
         this.#projectNav.appendChild(projectHeading);
+        // selecting project on click
+        projectHeading.addEventListener("click", e => {
+            this.#appController.setActiveProject(project);
+        })
     }
 
     addTodo(todo) {

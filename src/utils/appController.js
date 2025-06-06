@@ -19,6 +19,7 @@ export default class AppController {
     loadDefaultProject() {
         let project = new Project("Test Project");
         project.addTodo("Test", "Test", new Date(2008, 2, 2), "medium", false);
+        this.#domManager.addProject(project);
         this.setActiveProject(project);
         return project
     }
