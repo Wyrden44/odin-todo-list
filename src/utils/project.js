@@ -17,9 +17,9 @@ export default class Project {
         }
     }
 
-    addTodo(title, description, dueDate, priority, completed=false) {
-        let id = (this.#todos.length === 0) ? 1 : this.#todos[this.#todos.length-1].id+1;
-        this.#todos.push(new Todo(id, title, description, dueDate, priority, completed))
+    addTodo(title, description, dueDate, priority, completed=false, id=null) {
+        let todoId = (id !== null && id !== undefined) ? id : (this.#todos.length === 0) ? 1 : this.#todos[this.#todos.length-1].id+1;
+        this.#todos.push(new Todo(todoId, title, description, dueDate, priority, completed))
     }
 
     editTodo(todoId, title, description, dueDate, priority) {

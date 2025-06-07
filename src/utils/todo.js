@@ -55,7 +55,8 @@ export default class Todo {
     toggleComplete() {
         this.#completed = !this.#completed;
     }
-    toString() {
-        return `Title: ${this.#title}, Description: ${this.#description}, Due Date: ${this.#dueDate}, Priority: ${this.#priority}, Completed: ${this.#completed}`;
+
+    getObject() {
+        return { id: this.#id, title: this.#title, description: this.#description, priority: this.#priority, dueDate: this.#dueDate, completed: this.#completed }
     }
 }
