@@ -29,15 +29,15 @@ body {
     line-height: 1.5;
     letter-spacing: 0.05rem;
     color: var(--black);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
 }
 
 .sidebar {
     --sidebar-element-padding: 0.5rem;
 
-    flex: 1;
-    min-width: max-content;
+    flex: 1 0 auto;
+    min-width: 170px;
     max-width: 300px;
     height: 100%;
 
